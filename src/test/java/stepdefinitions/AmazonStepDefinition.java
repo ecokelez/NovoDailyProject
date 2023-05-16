@@ -2,12 +2,15 @@ package stepdefinitions;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.interactions.Actions;
 import pages.AmazonPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
 public class AmazonStepDefinition {
     AmazonPage amazonPage = new AmazonPage();
+    Actions actions = new Actions(Driver.getDriver());
     @Given("User goes to {string}")
     public void user_goes_to(String searchUrl) {
         Driver.getDriver().get(ConfigReader.getProperty(searchUrl));
@@ -26,11 +29,18 @@ public class AmazonStepDefinition {
     @Then("User prints the search results on the screen")
     public void user_prints_the_search_results_on_the_screen() {
 
+    }
+    @And("User opens the todays link in a new tab")
+    public void userOpensTheTodaysLinkInANewTab() {
+        //String amazonHandle = Driver.getDriver().getWindowHandle();
+        //Driver.getDriver().switchTo().newWindow(WindowType.TAB);
+        actions.keyDown(Keys.CONTROL).click(amazonPage.todaysDealsLink).keyUp(Keys.CONTROL).build().perform();
 
     }
     @Then("Close the page")
     public void close_the_page() {
         Driver.closeDriver();
     }
+
 
 }

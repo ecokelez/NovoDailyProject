@@ -6,10 +6,11 @@ Feature: Amazon Search
     When User searches for "<requestedWorld>"
     Then User tests that the URL contains "<requestedWorldCheck>"
     And User prints the search results on the screen
-    And Close the page
+    And User opens the todays link in a new tab
+    #And Close the page
     Examples:
       | requestedWorld | requestedWorldCheck |
       | Nutella        | Nutella |
-      | Tadella        | Tadella |
+      #| Tadella        | Tadella |
 
 

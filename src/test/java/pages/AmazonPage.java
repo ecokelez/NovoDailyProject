@@ -17,5 +17,8 @@ public class AmazonPage {
     @FindBy( xpath = "a-section a-spacing-small a-spacing-top-small")
     public WebElement searchResult;
 
+    @FindBy(xpath = "//*[@class='nav-a  '][1]")
+    public WebElement todaysDealsLink;
+
 }
 
