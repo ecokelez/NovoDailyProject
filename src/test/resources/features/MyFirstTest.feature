@@ -7,7 +7,7 @@ Feature: Amazon Search
     Then User tests that the URL contains "<requestedWorldCheck>"
     And User prints the search results on the screen
     And User opens the todays link in a new tab
-    #And Close the page
+    And Close the page
     Examples:
       | requestedWorld | requestedWorldCheck |
       | Nutella        | Nutella |
